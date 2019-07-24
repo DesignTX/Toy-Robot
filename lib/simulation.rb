@@ -18,12 +18,15 @@ class Simulation
       interpret_command(command)
       @robot.report
     end
+    puts("Distance From Starting Position #{calculate_distance}")
   end
 
 
 
 
+
   private
+
   def interpret_command(command)
     case command[0]
     when "L"
@@ -38,6 +41,12 @@ class Simulation
     else 
       puts "invalid command"
     end
+  end
+
+  def calculate_distance
+  x = @robot.position_x.abs
+  y = @robot.position_y.abs
+  return x + y
   end
 
 
