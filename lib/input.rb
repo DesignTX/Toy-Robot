@@ -2,11 +2,17 @@
 
 
 class Input 
+  attr_reader :commands
 
+  def initialize
+    @commands = read_file
+  end
+  
   #self creates a class method
-  def self.read_file
-    File.open("./data/commands.txt").each do |x|
-      puts(x)
+  private
+  def interpret_commands_from_file
+    File.open("./data/commands.txt") do |line|
+      return line.read.split(',')
     end 
   end 
 
