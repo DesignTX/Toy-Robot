@@ -25,6 +25,7 @@ class Robot
   end
 
   def turn_right
+    #@facing relates to the index of the array @directions, if were facing 'North' and we have to turn right ('North') it exceeds the bounds of the array, eg; reaching 5 will break.
     if @facing == 3
       @facing = 0
     else

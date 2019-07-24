@@ -6,22 +6,39 @@ class Simulation
 
   def initialize()
     @input = Input.new
-    puts @input.commands
     @robot = Robot.new
-    @robot.report
-    @robot.turn_right
-    @robot.report
-    @robot.turn_right
-    @robot.report
-    @robot.turn_right
-    @robot.report
-    @robot.turn_right
-    @robot.report
-    @robot.turn_right
-    @robot.report
-    @robot.turn_right
     @robot.report
 
   end
+
+  def run
+    @input.commands.each do |command|
+      puts command
+      interpret_command(command)
+
+      @robot.report
+    end
+  end
+
+
+
+
+
+  private
+  def interpret_command(command)
+    case command[0]
+    when "L"
+      @robot.turn_left
+    when "R"
+      @robot.turn_right
+    when "F"
+      puts "input forwards entered"
+    when "B"
+      puts "input backwards entered"
+    else 
+      puts "invalid command"
+    end
+  end
+
 
 end
