@@ -5,7 +5,7 @@ class Input
   attr_reader :commands
 
   def initialize
-    @commands = read_file
+    @commands = interpret_commands_from_file
   end
   
   #self creates a class method
@@ -15,10 +15,6 @@ class Input
       return line.read.split(',')
     end 
   end 
-
-
-
-
 
 
 end

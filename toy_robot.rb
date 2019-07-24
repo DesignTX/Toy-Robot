@@ -1,4 +1,3 @@
-require_relative './lib/input.rb'
+require_relative './lib/simulation.rb'
 
-input = Input.new
-puts(input.commands)
+input = Simulation.new
