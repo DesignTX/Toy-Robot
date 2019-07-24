@@ -33,6 +33,32 @@ class Robot
     end
   end
 
+  def move_forwards(steps)
+    case @facing
+    when 0
+      @position_y += steps
+    when 1
+      @position_x += steps
+    when 2
+      @position_y -= steps
+    when 3
+      @position_x -= steps
+    end
+  end
+
+  def move_backwards(steps)
+    case @facing
+    when 0
+      @position_y -= steps
+    when 1
+      @position_x -= steps
+    when 2
+      @position_y += steps
+    when 3
+      @position_x += steps
+    end
+  end
+
 
 
   #facing outputs a number, create function to output facing index as string

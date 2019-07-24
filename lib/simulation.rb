@@ -8,6 +8,7 @@ class Simulation
     @input = Input.new
     @robot = Robot.new
     @robot.report
+  
 
   end
 
@@ -15,11 +16,9 @@ class Simulation
     @input.commands.each do |command|
       puts command
       interpret_command(command)
-
       @robot.report
     end
   end
-
 
 
 
@@ -32,9 +31,10 @@ class Simulation
     when "R"
       @robot.turn_right
     when "F"
-      puts "input forwards entered"
+      #to_i because command[1..-1] pulled data from command.txt which was a string, need to convert to integer 
+      @robot.move_forwards(command[1..-1].to_i)
     when "B"
-      puts "input backwards entered"
+      @robot.move_backwards(command[1..-1].to_i)
     else 
       puts "invalid command"
     end
