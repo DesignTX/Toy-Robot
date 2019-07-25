@@ -8,8 +8,6 @@ class Simulation
     @input = Input.new
     @robot = Robot.new
     @robot.report
-  
-
   end
 
   def run
@@ -44,6 +42,7 @@ class Simulation
   end
 
   def calculate_distance
+    #Changes X and Y values to absolute values
   x = @robot.position_x.abs
   y = @robot.position_y.abs
   return x + y
