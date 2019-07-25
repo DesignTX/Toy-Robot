@@ -5,11 +5,13 @@ class Input
   attr_reader :commands
 
   def initialize
+    # @Commands is the the inputs from commands.txt turned into a usable array
     @commands = interpret_commands_from_file
-    unless commands_valid?
-      puts "invalid command found"
-      puts "PROGRAM TERMINATED"
-      exit
+    command_result = commands_valid?
+    unless command_result[0]
+     puts "Error in Input: #{command_result[1]+1}, Command: #{command_result[2]}"
+     puts "Program will now exit."
+    exit
     end
   end
   
@@ -25,12 +27,12 @@ class Input
   def commands_valid?
     # %w Rubys way of making a word array
     known_commands = %w(F B L R)
-    @commands.each do |command|
+    @commands.each_with_index do |command, index|
       unless known_commands.include?(command[0])
-        return false
+        return [false, index, command]
       end
     end
-    return true
+    return [true]
   end
 
 
