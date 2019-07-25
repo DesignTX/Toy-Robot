@@ -18,7 +18,7 @@ class Simulation
       @robot.report
     end
     @distance = calculate_distance
-    puts("Minimum Distance From Starting Position: #{@distance}")
+    puts("Minimum Distance To Get Back From Starting Position: #{@distance}")
   end
 
 
