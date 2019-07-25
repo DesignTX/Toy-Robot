@@ -16,7 +16,7 @@ class Simulation
       interpret_command(command)
       @robot.report
     end
-    puts("Distance From Starting Position #{calculate_distance}")
+    puts("Minimum Distance From Starting Position #{calculate_distance}")
   end
 
 
