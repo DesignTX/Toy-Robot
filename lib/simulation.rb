@@ -28,6 +28,7 @@ class Simulation
   private
 
   def interpret_command(command)
+    #takes the first part of the array command 'B2' = B
     order = command[0]
     #to_i because command[1..-1] pulled data from command.txt which was a string, need to convert to integer     
     steps = command[1..-1].to_i

@@ -24,7 +24,7 @@ class Input
 
   # Takes in raw input from commands.txt and checks whether the raw inputs are valid, returning true or false.
   def commands_valid?
-    # Loops through entire commands.txt, if bad input, returns false with the index of the bad input and the entire input of that command.
+    # Loops through entire commands.txt, if there is a bad input, returns false with the index of the bad input and the entire input of that command.
     # Regex passes with only commands with F,B,L,R and positive whole numbers
     @commands.each_with_index do |command, index|
       unless command.match(/[FBLR]\d+$/)

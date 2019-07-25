@@ -119,7 +119,7 @@ This should be -11 from the array starting position [0] which in place should be
 
 but having the modulo in place '11 % 4' ensures full turns arent calculated leaving us with a remainder of '1' which gets passed as a minus value within the bounds of the array '[0] - [1] = [-1]', leaving us facing 'WEST'.
 ```
----
+
 
 # <a id="errorhandling"></a> Error Handling
 
