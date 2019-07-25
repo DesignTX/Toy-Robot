@@ -26,18 +26,20 @@ class Simulation
   private
 
   def interpret_command(command)
-    case command[0]
+    order = command[0]
+    #to_i because command[1..-1] pulled data from command.txt which was a string, need to convert to integer     
+    steps = command[1..-1].to_i
+    
+    case order
     when "L"
-      @robot.turn_left
+      @robot.turn_left(steps)
     when "R"
-      @robot.turn_right
+      @robot.turn_right(steps)
     when "F"
-      #to_i because command[1..-1] pulled data from command.txt which was a string, need to convert to integer 
-      @robot.move_forwards(command[1..-1].to_i)
+
+      @robot.move_forwards(steps)
     when "B"
-      @robot.move_backwards(command[1..-1].to_i)
-    else 
-      puts "invalid command"
+      @robot.move_backwards(steps)
     end
   end
 

@@ -5,7 +5,6 @@ class Input
   attr_reader :commands
 
   def initialize
-    # @Commands is the the inputs from commands.txt turned into a usable array
     @commands = interpret_commands_from_file
     command_result = commands_valid?
     unless command_result[0]
@@ -16,6 +15,7 @@ class Input
   end
   
   private
+  #Splits data from commands.txt into usable array
   def interpret_commands_from_file
     File.open("./data/commands.txt") do |line|
       return line.read.split(',')
@@ -23,7 +23,6 @@ class Input
   end 
 
   # Takes in raw input from commands.txt and checks whether the raw inputs are valid, returning true or false.
-
   def commands_valid?
     # %w Rubys way of making a word array
     known_commands = %w(F B L R)

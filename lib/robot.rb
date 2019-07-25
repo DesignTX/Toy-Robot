@@ -15,22 +15,18 @@ class Robot
     puts "x: #{position_x}, y: #{position_y}, facing: #{facing_to_s}"
   end
 
-  def turn_left
-    #@facing relates to the index of the array @directions, if were facing 'North' and we have to turn left ('West') it exceeds the bounds of the array, eg; reaching -5 will break.
-    if @facing == 0
-      @facing = 3
-    else
-      @facing -= 1
-    end
+  def turn_left(steps)
+    # Spin Modulo 4 disregards full turns to get a value within the parameters of the @facing, - spin to turn left, + spin to turn right
+    spin = steps % 4
+    facing_direction = @directions[@facing - spin]
+    @facing = @directions.find_index(facing_direction)
   end
 
-  def turn_right
-    #@facing relates to the index of the array @directions, if were facing 'North' and we have to turn right ('North') it exceeds the bounds of the array, eg; reaching 5 will break.
-    if @facing == 3
-      @facing = 0
-    else
-      @facing += 1
-    end
+  def turn_right(steps)
+    # Spin Modulo 4 disregards full turns to get a value within the parameters of the @facing, - spin to turn left, + spin to turn right
+    spin = steps % 4
+    facing_direction = @directions[@facing + spin]
+    @facing = @directions.find_index(facing_direction)
   end
 
   def move_forwards(steps)
