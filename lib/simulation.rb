@@ -7,17 +7,18 @@ class Simulation
   def initialize()
     @input = Input.new
     @robot = Robot.new
+    puts "Starting at"
     @robot.report
   end
 
   def run
     @input.commands.each do |command|
-      puts command
+      puts "Input: #{command}"
       interpret_command(command)
       @robot.report
     end
     @distance = calculate_distance
-    puts("Minimum Distance From Starting Position #{@distance}")
+    puts("Minimum Distance From Starting Position: #{@distance}")
   end
 
 
