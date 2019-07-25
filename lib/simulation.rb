@@ -3,7 +3,7 @@ require_relative "input.rb"
 require_relative "robot.rb"
 
 class Simulation
-
+  attr_reader :distance
   def initialize()
     @input = Input.new
     @robot = Robot.new
@@ -16,7 +16,8 @@ class Simulation
       interpret_command(command)
       @robot.report
     end
-    puts("Minimum Distance From Starting Position #{calculate_distance}")
+    @distance = calculate_distance
+    puts("Minimum Distance From Starting Position #{@distance}")
   end
 
 
@@ -45,9 +46,9 @@ class Simulation
 
   def calculate_distance
     #Changes X and Y values to absolute values
-  x = @robot.position_x.abs
-  y = @robot.position_y.abs
-  return x + y
+    x = @robot.position_x.abs
+    y = @robot.position_y.abs
+    return x + y
   end
 
 
